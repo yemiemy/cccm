@@ -27,13 +27,14 @@ def events(request):
     }
     return render(request, "event.html", context)
 
-def event_detail(request, id):
+def event_detail(request, id, name):
     event = get_object_or_404(Event, id=id)
 
     context = {
-        'event':event
+        'event':event,
+        'percent': min(int(event.donations / event.goal * 100), 100)
     }
-    return render(request, "event.html", context)
+    return render(request, "event_detail.html", context)
 
 def serviceDetail(request):
     return render(request, "serviceDetail.html")

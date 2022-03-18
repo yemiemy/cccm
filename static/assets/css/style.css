@@ -5079,6 +5079,7 @@ background:#3cc88f;
 }
 .witr_team_section img {
     width: 100%;
+    height: 300px;
 }
 .witr_team_section:before  {
 	content:"";
@@ -6848,6 +6849,7 @@ font-size:16px;
 }
 .blog-img img{
 	width:100%;
+    height:300px
 }
 .blog-img a{}
 
@@ -13407,7 +13409,7 @@ color: #fff;
 	    padding: 15px 0px;
 }
 .witr_event_style_5 .event-page-title_adn {
-    padding-top: 50px;
+    padding-top: 0px;
 }
 .witr_event_style_5 .witr_event_d{
     padding-top: 65px;	

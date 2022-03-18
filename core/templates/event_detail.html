@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="breadcumb-area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-md-12 txtc">
+				<div class="breadcumb-inner">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><i class="fas fa-angle-right"></i></li>
+						<li>Events</li>
+					</ul>						
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="single_causes_area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-lg-5 col-md-12 col-sm-12">
+				<div class="themex_give_thumb">
+					<img  src="{{event.thumbnail.url}}"  alt="" >
+				</div>
+			</div>
+			<div class="col-lg-7 col-md-12 col-sm-12">
+				<div class="widget_title">
+					<h1>{{event.name}}</h1>
+					<div class="price_inner">
+						<h3><span>${{event.donations}}</span> of <span class="dolar2">${{event.goal}}</span>raised</h3>
+					</div>
+						<div class="progress witr_progress-style9">
+							<div class="progress-bar wow fadeInLeft animated animated" data-wow-duration="1.5s" data-wow-delay="0.2s" style = "width:{{percent}}%; animation-name: fadeInLeft;">
+								<span class="witr_percent">{{percent}}%</span>					
+							</div>
+					</div>
+					<p>{{event.description | safe}}</p>
+					<p><em>NB :</em>To donate none monetary resources, kindly <span><a href="{% url 'contact' %}">contact us</a></span></p>
+				</div>
+				<div class="donation-amount">
+					<form action="">
+						<div class="form_field2">
+						<span>$</span>
+							<input  name="give-amount"  placeholder="" value="100.00">
+						</div>
+						<div class="form_field2">
+							<select name="select_opt">
+								<option>$10.00</option>
+								<option>$25.00</option>
+								<option>$50.00</option>
+								<option>100.00</option>
+								<option>$250.00</option>
+								<option>Custom Amount</option>
+							</select>
+						</div>
+						<div class="form_field2">
+							<button type="button" class="give-btn give-btn-reveal">Donate Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+				
+{% endblock %}

@@ -95,7 +95,7 @@
 					
 				</ul>
 			</div>
-				<div class="witr_single_progress all_color_bar">
+				<!-- <div class="witr_single_progress all_color_bar">
 					<div class="witr_title2">
 						<span class="witr_label">In us for over<span> 80% Sucess</span> </span>	
 					</div>		
@@ -104,7 +104,7 @@
 							<span class="witr_percent">87%</span>					
 						</div>
 					</div>				
-				</div>
+				</div> -->
 				<div class="witr_button_area">
 					<div class="witr_btn_style mr">
 						<div class="witr_btn_sinner">	
@@ -427,53 +427,25 @@
 			</div>
 		</div>
 		<div class="row team_top">
-			<div class="col-lg-4 col-md-6 col-sm-12">			
-				<div class="team-part all_color_team">
-					<div class="witr_team_section">
-						<img src="{% static 'assets/images/team-3.png' %}" alt="">		
-						<div class="team_overlay_icon all_team_icon_o_color">
-							<a href="#">
-								<i class="icofont-redo"></i>
-							</a>
-						</div>
-					</div> 
-					<div class="witr_team_content all_content_bg_color text-center">
-						<h5>Flamingo Mr </h5>	
-						<span>Reporter </span>	
-					</div> 
-				</div>		
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-12">			
-				<div class="team-part all_color_team">
-					<div class="witr_team_section">
-						<img src="{% static 'assets/images/team-2.png' %}" alt="">		
-						<div class="team_overlay_icon all_team_icon_o_color">
-							<a href="#">
-								<i class="icofont-redo"></i>
-							</a>
-						</div>
-					</div> 
-					<div class="witr_team_content all_content_bg_color text-center">
-						<h5>Magnificent Mr</h5>	
-						<span>Donate Support</span>	
-					</div> 
-				</div>		
-			</div><div class="col-lg-4 col-md-6 col-sm-12">			
-				<div class="team-part all_color_team">
-					<div class="witr_team_section">
-						<img src="{% static 'assets/images/team-1.png' %}" alt="">		
-						<div class="team_overlay_icon all_team_icon_o_color">
-							<a href="#">
-								<i class="icofont-redo"></i>
-							</a>
-						</div>
-					</div> 
-					<div class="witr_team_content all_content_bg_color text-center">
-						<h5>Maidan Smith</h5>	
-						<span>Support </span>	
-					</div> 
-				</div>		
-			</div>		
+			{% for volunteer in volunteers %}
+				<div class="col-lg-4 col-md-6 col-sm-12">			
+					<div class="team-part all_color_team">
+						<div class="witr_team_section">
+							<img src="{{volunteer.image.url}}" height="330px" width="370px" alt="">		
+							<div class="team_overlay_icon all_team_icon_o_color">
+								<a href="#">
+									<i class="icofont-redo"></i>
+								</a>
+							</div>
+						</div> 
+						<div class="witr_team_content all_content_bg_color text-center">
+							<h5>{{volunteer.name}}</h5>	
+							<span>{{volunteer.job_role}} </span>	
+						</div> 
+					</div>		
+				</div>
+			{% endfor %}
+						
 		</div>
 		
 	</div>
@@ -495,7 +467,7 @@
 				<div class="witr_button_area">
 					<div class="witr_btn_style mr">
 						<div class="witr_btn_sinner">
-							<a href="#" class="witr_btn">SEE MORE EVENT</a>
+							<a href="{% url 'events' %}" class="witr_btn">SEE MORE EVENT</a>
 						</div>						
 					</div>
 				</div>
@@ -504,78 +476,43 @@
 		<div class="row event-top"> 
 			<div class="col-lg-12">
 				<div class="event_active event_style_adn_3 witr_3e event_all_color text-">				
-					<div class="event_wrap">
-						<div class="col-lg-12 col-md-12 col-sm-12  witr_all_mb_30">
-							<div class="row themex-single-event_adn witr_event_style_5">
-								<div class="col-lg-3 col-md-6">
-									<div class="themex-event-thumb_adn">
-										<a href="single-event.html"> <img  src="{% static 'assets/images/event-thumb-1.jp' %}g" alt=""></a>
-									</div>									
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<div class="event-page-title_adn ">
-										<p>Goal: $2,735</p>
-										<h2><a href="single-event.html">Fundraising Event Ideas To Raise Money For Your Cause</a></h2>
-										<div class="themex-event-meta-left_adn">
-											<span><i class="fas fa-map-marker-alt"></i>North Helenaville, FV77 8WS</span>
-										</div>
-									</div>											
-								</div>	
-								<div class="col-lg-3 col-md-6">
-									<div class="witr_event_d">
-										<div class="event_date_5">
-											<span><i class="fas fa-calendar"></i></span>
-											<span>April 06, 2021</span>
-										</div>
-										<div class="themex-event-meta-left_adn">
-											<span><i class="fas fa-clock"></i>8.00 am- 9.00 pm</span>
-										</div>
+					<div class="event_wrap">			
+						{% for event in events %}
+							<div class="col-lg-12 col-md-12 col-sm-12  witr_all_mb_30">
+								<div class="row themex-single-event_adn witr_event_style_5">
+									<div class="col-lg-3 col-md-6">
+										<div class="themex-event-thumb_adn">
+											<a href="{% url 'event_detail' event.id event.name %}"> <img  src="{{event.thumbnail.url}}" alt=""></a>
+										</div>									
 									</div>
-								</div>
-								<div class="col-lg-2 col-md-6">
-									<div class="witr_event_btn btn_all_color">
-										<a href="#">Donate Now </a>
-									</div>												
-								</div>											
-							</div>
-						</div>
-						<div class="col-lg-12 col-md-12 col-sm-12  witr_all_mb_30">
-							<div class="row themex-single-event_adn witr_event_style_5">
-								<div class="col-lg-3 col-md-6">
-									<div class="themex-event-thumb_adn">
-										<a href="single-event.html"> <img  src="{% static 'assets/images/event-thumb-2.jpg' %}"  alt=""></a>
-									</div>									
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<div class="event-page-title_adn d-block ">
-										<p>Goal: $12,901</p>
-										<h2><a href="single-event.html">Most Effective Ways To Overcome Nonprofit</a></h2>
-										<div class="themex-event-meta-left_adn">
-											<span><i class="fas fa-map-marker-alt"></i>North Helenaville, FV77 8WS</span>
-										</div>
-
+									<div class="col-lg-4 col-md-6">
+										<div class="event-page-title_adn ">
+											<p>Goal: ${{event.donations}}/${{event.goal}}</p>
+											<h2><a href="single-event.html">{{event.name}}</a></h2>
+											<div class="themex-event-meta-left_adn">
+												<span><i class="fas fa-map-marker-alt"></i>{{event.event_location}}</span>
+											</div>
+											
+										</div>		
+																	
 									</div>	
-																		
-								</div>	
-								
-								<div class="col-lg-3 col-md-6">
-									<div class="witr_event_d">
-										<div class="event_date_5">
+									<div class="col-lg-3 col-md-6">
+										<div class="witr_event_d">
+											<div class="event_date_5">
 											<span><i class="fas fa-calendar"></i></span>
-											<span>April 06, 2021</span>
-										</div>
-										<div class="themex-event-meta-left_adn">
-											<span><i class="fas fa-clock"></i>8.00 am- 9.00 pm</span>
+											<span>{{event.event_date_time}}</span>
+										</div>		
+											
 										</div>
 									</div>
+									<div class="col-lg-2 col-md-6">
+										<div class="witr_event_btn btn_all_color">
+											<a href="{% url 'event_detail' event.id event.name %}">Donate Now </a>
+										</div>												
+									</div>											
 								</div>
-								<div class="col-lg-2 col-md-6">
-									<div class="witr_event_btn btn_all_color">
-										<a href="#">Donate Now </a>
-									</div>												
-								</div>											
 							</div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -597,78 +534,28 @@
 			</div>
 		</div>
 		<div class="row blog_top">
-			<div class=" col-lg-4  col-md-6 col-sm-12 ">
-				<div class="blog-part all_blog_color">
-					<div class="blog_part_inner">
-						<div class="witr_blog_imags">
-							<div class="blog-img">
-								<a href="single-blog.html"> <img src="{% static 'assets/images/themex-blog1.jpg' %}" alt=""> </a>
+			{% for article in articles %}
+				<div class=" col-lg-4  col-md-6 col-sm-12 ">
+					<div class="blog-part all_blog_color">
+						<div class="blog_part_inner">
+							<div class="witr_blog_imags">
+								<div class="blog-img">
+									<a href="{% url 'article_detail' article.id article.slug %}"> <img src="{{article.featured_image.url}}" alt=""> </a>
+								</div>
 							</div>
-						</div>
-						<div class="wblog-content blog-content-2 all_blog_color">
-							<span><a href="#"><i class="icofont-calendar"></i></a> April 06, 2021</span>
-							<span><a href="#"><i class="icofont-speech-comments"></i>0</a></span>
-							<h5><a href="single-blog.html">I Will Tell You The Truth About Nonprofit</a></h5>
-							 <a class="btn2" href="#">Read More</a>
+							<div class="wblog-content blog-content-2 all_blog_color">
+								<span><a href="#"><i class="icofont-calendar"></i></a>{{article.date_stamp}}</span>
+								<span><a href="#"><i class="icofont-speech-comments"></i>{{article.comment_set.count}}</a></span>
+								<h5><a  href="{% url 'article_detail' article.id article.slug %}">{{article.title}}</a></h5>
+								<a class="btn2"  href="{% url 'article_detail' article.id article.slug %}">Read More</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class=" col-lg-4  col-md-6 col-sm-12 ">
-				<div class="blog-part all_blog_color">
-					<div class="blog_part_inner">
-						<div class="witr_blog_imags">
-							<div class="blog-img">
-								<a href="single-blog.html"> <img src="{% static 'assets/images/themex-blog3.jpg' %}" alt=""> </a>
-							</div>
-						</div>
-						<div class="wblog-content blog-content-2 all_blog_color">
-							<span><a href="#"><i class="icofont-calendar"></i></a> April 06, 2021</span>
-							<span><a href="#"><i class="icofont-speech-comments"></i>0</a></span>
-							<h5><a href="single-blog.html">5 About Nonprofit That You Can’t Learn From</a></h5>
-							 <a class="btn2" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class=" col-lg-4  col-md-6 col-sm-12 ">
-				<div class="blog-part all_blog_color">
-					<div class="blog_part_inner">
-						<div class="witr_blog_imags">
-							<div class="blog-img">
-								<a href="single-blog.html"> <img src="{% static 'assets/images/themex-blog4.jpg' %}" alt=""> </a>
-							</div>
-						</div>
-						<div class="wblog-content blog-content-2 all_blog_color">
-							<span><a href="#"><i class="icofont-calendar"></i></a> April 06, 2021</span>
-							<span><a href="#"><i class="icofont-speech-comments"></i>0</a></span>
-							<h5><a href="single-blog.html">What Will Nonprofit Be Like In The Next</a></h5>
-							 <a class="btn2" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </div>
-
-
-<!--MODALS-->
-<!-- <div class="modal modal-lg fade" id="educationModal" aria-hidden="true" aria-labelledby="educationModalToggleLabel" tabindex="-1">
-	<div class="modal-dialog  modal-dialog-centered">
-	  <div class="modal-content">
-		<div class="modal-header">
-		  <h5 class="modal-title" id="educationModalToggleLabel">Modal 1</h5>
-		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-		  Show a second modal and hide this one with the button below.
-		</div>
-		<div class="modal-footer">
-		</div>
-	  </div>
-	</div>
-  </div> -->
 
   <!-- Modal -->
   <div>
