@@ -1,27 +1,66 @@
-from django.shortcuts import render
-
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+from django.views.generic import ListView, DetailView
+from .models import Article, Comment, Category
 # Create your views here.
 
 def home(request):
     return render(request, "index.html")
 
-
 def about(request):
     return render(request, "about.html")
-
 
 def contact(request):
     return render(request, "contact.html")
 
-
 def events(request):
     return render(request, "event.html")
-
-
-def blog(request):
-    return render(request, "blog.html")
-
 
 def serviceDetail(request):
     return render(request, "serviceDetail.html")
     
+
+
+# Articles Views
+class ArticleListView(ListView):
+    model = Article
+    template_name = 'Article/article_list.html'
+    ordering = ['-id']
+    paginate_by = 4
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            'categories': Category.objects.all().order_by('-id')[:5]
+        })  
+        return context
+
+class ArticleDetailView(DetailView):
+    model=Article
+    def get_context_data(self, *args, **kwargs):
+        context = super(ArticleDetailView, self).get_context_data(**kwargs)
+        context['related_articles'] = set(Article.objects.filter(category=self.get_object().category, is_active=True).exclude(id=self.kwargs.get('pk'))[:3])
+        return context
+
+class CategoryArticleListView(ListView):
+    model = Article
+    template_name = 'Article/category_article_list.html'
+    paginate_by = 4
+    ordering = ['-id']
+
+    def get_queryset(self):
+        category = get_object_or_404(Category, name__iexact=self.kwargs.get('name'))
+        return Article.objects.filter(category=category, is_active=True).order_by('-id')
+
+def comments_create_view_api(request, article_id):
+    if request.method == "POST":
+        name = request.POST.get("name", None)
+        content = request.POST.get("content", None)
+        
+    article = Article.objects.get(id=article_id)
+
+    Comment.objects.create(
+        article=article,
+        name=name,
+        content=content
+    )
+    return reverse('article_detail', kwargs={"pk":article_id, "slug":article.slug})
