@@ -10025,7 +10025,8 @@ themex HEADING TOP AREA CSS
 /* mobile logo   */
 
 .mobile_menu_logo.text-center {
-    padding: 20px 0;
+    padding: 5px 0;
+    height: 50%;
 }
 /*=====================
 END themex HEADING TOP AREA CSS
@@ -10200,11 +10201,12 @@ themex HEADING NAV AREA CSS
 
 /* LOGO CSS */
 
-.logo {} .logo a {
+.logo {height: 100%;} .logo a {
     font-size: 23px;
     font-weight: 700;
     display: inline-block;
-	    margin-top: 28px;
+	    margin-top: auto;
+        margin-bottom: auto;
 }
 .themex_menu {
 	    text-align: right;
@@ -10543,6 +10545,7 @@ a.dtbtn {
 
 .themex-main-menu .logo a.main_sticky_main_l {
     display: block;
+    margin-top: 0px;
 }
 .themex-main-menu .logo a.main_sticky_l {
     display: none;

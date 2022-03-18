@@ -723,7 +723,8 @@ right:-248px;
     padding: 0px 0px 0px;
 }
 .logo a {
-    margin-top: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .themex_benefit_area {
     padding: 0px 17px 50px 19px;
