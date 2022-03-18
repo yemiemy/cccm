@@ -1,20 +1,39 @@
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import ListView, DetailView
-from .models import Article, Comment, Category
+from .models import Article, Comment, Category, Event, Volunteer
 # Create your views here.
 
 def home(request):
-    return render(request, "index.html")
+    context = {
+        'volunteers':Volunteer.objects.all()[:3],
+        'events':Event.objects.order_by('-id')[:2],
+        'articles':Article.objects.order_by('id')[:3]
+    }
+    return render(request, "index.html", context)
 
 def about(request):
-    return render(request, "about.html")
+    context = {
+        'volunteers':Volunteer.objects.all()
+    }
+    return render(request, "about.html", context)
 
 def contact(request):
     return render(request, "contact.html")
 
 def events(request):
-    return render(request, "event.html")
+    context = {
+        'events':Event.objects.order_by('-id')
+    }
+    return render(request, "event.html", context)
+
+def event_detail(request, id):
+    event = get_object_or_404(Event, id=id)
+
+    context = {
+        'event':event
+    }
+    return render(request, "event.html", context)
 
 def serviceDetail(request):
     return render(request, "serviceDetail.html")
@@ -36,6 +55,7 @@ class ArticleListView(ListView):
 
 class ArticleDetailView(DetailView):
     model=Article
+    template_name = 'Article/article_detail.html'
     def get_context_data(self, *args, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
         context['related_articles'] = set(Article.objects.filter(category=self.get_object().category, is_active=True).exclude(id=self.kwargs.get('pk'))[:3])

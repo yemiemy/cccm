@@ -1,11 +1,13 @@
 from django.urls import path
-from core.views import home, about, contact, events, ArticleListView, ArticleDetailView, CategoryArticleListView, comments_create_view_api
+from core.views import home, about, contact, events, ArticleListView, ArticleDetailView, CategoryArticleListView, comments_create_view_api, event_detail
 
 urlpatterns = [
     path('', home, name="home"),
     path('about/', about, name="about"),
     path('contact/', contact, name="contact"),
     path('events/', events, name="events"),
+
+    path('events/<int:id>/<str:name>/', event_detail, name="event_detail"),
 
     # Blog
     path('blog/', ArticleListView.as_view(), name="article_list"),
