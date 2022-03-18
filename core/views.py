@@ -7,7 +7,7 @@ from .models import Article, Comment, Category, Event, Volunteer
 def home(request):
     context = {
         'volunteers':Volunteer.objects.all()[:3],
-        'events':Event.objects.order_by('-id')[:2],
+        'events':Event.objects.filter(is_active=True).order_by('-id')[:2],
         'articles':Article.objects.order_by('id')[:3]
     }
     return render(request, "index.html", context)
@@ -23,7 +23,7 @@ def contact(request):
 
 def events(request):
     context = {
-        'events':Event.objects.order_by('-id')
+        'events':Event.objects.filter(is_active=True).order_by('-id')
     }
     return render(request, "event.html", context)
 

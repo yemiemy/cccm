@@ -27,6 +27,7 @@ class Event(models.Model):
     event_location = models.CharField(max_length=150, help_text="Where will the events be happening?")
     date_created = models.DateTimeField(auto_now_add=True)
     donations = models.FloatField(default=0, help_text="DOnations made for the event")
+    is_active = models.BooleanField(default=True)
 
 
     def __str__(self) -> str:
