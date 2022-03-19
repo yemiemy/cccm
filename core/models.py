@@ -15,6 +15,9 @@ class Volunteer(models.Model):
     image = models.ImageField(upload_to='volunteers/')
     job_role = models.CharField(max_length=150)
     education = models.CharField(max_length=50, help_text="Volunteer educational background")
+    social_handle_link = models.URLField(
+        max_length=500, null=True, blank=True, 
+        help_text="Volunteer social profile e.g. LinkedIn, Instagram or Twitter.")
 
     def __str__(self) -> str:
         return self.name
