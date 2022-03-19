@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import ListView, DetailView
 from .models import Article, Comment, Category, Event, Volunteer
+from django.contrib import messages
 # Create your views here.
 
 def home(request):
@@ -19,6 +20,15 @@ def about(request):
     return render(request, "about.html", context)
 
 def contact(request):
+    if request.method == "POST":
+        name = request.POST.get("name", None)
+        email = request.POST.get("email", None)
+        subject = request.POST.get("subject", None)
+        message = request.POST.get("message", None)
+
+        print(name, email, subject, message)
+        #TODO: use the send_mail() to send an email to their email address.
+        messages.success(request, "Your message has been successfully sent.")
     return render(request, "contact.html")
 
 def events(request):

@@ -29,25 +29,26 @@
 			<div class="col-lg-12">
 				<div class="apartment_area">				
 					<div class="witr_apartment_form">
-						<form action="mail.php" method="post" id="contact-form">
+						<form method="post">
+							{% csrf_token %}
 							<div class="witr_form_controls2">
 								<div class="witr_field2">
 									<div class="witr_form_field2">
-										<span><input type="text" name="name" placeholder="Name*"></span>
+										<span><input type="text" name="name" required placeholder="Name*"></span>
 									</div>
 									<div class="witr_form_field2">
-										<span><input type="email" name="email" placeholder="Email*"></span>
+										<span><input type="email" name="email" required placeholder="Email*"></span>
 									</div>
 								</div>
 								<div class="witr_field2">
 									<div class="witr_form_field2 w-100">
-										<span><input type="text" name="subject" placeholder="Subject"></span>
+										<span><input type="text" name="subject" required placeholder="Subject"></span>
 									</div>
 								</div>
 								<div class="witr_field2">
 									<div class="witr_text_area2">
 										<span>
-										<textarea name="comment" placeholder="Enter your text here"></textarea>
+										<textarea name="message" required placeholder="Enter your message here"></textarea>
 										</span>
 									</div>
 								</div>
