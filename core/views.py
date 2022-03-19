@@ -36,9 +36,11 @@ def event_detail(request, id, name):
     }
     return render(request, "event_detail.html", context)
 
-def serviceDetail(request):
-    return render(request, "serviceDetail.html")
-    
+def donate(request):
+    context = {
+        
+    }
+    return render(request, "donate.html", context)
 
 
 # Articles Views
@@ -51,7 +53,8 @@ class ArticleListView(ListView):
         context = super().get_context_data(**kwargs)
         context.update({
             'categories': Category.objects.all().order_by('-id')[:5]
-        })  
+        }) 
+        print(context) 
         return context
 
 class ArticleDetailView(DetailView):

@@ -10884,7 +10884,7 @@ word-break: break-all;
 /* COMMENT FORM CSS */
 
 .comment_field {} .comment_field .input-field {
-    width: 33.33%;
+    width: 100%;
     float: left;
 }
 .comment_field .input-field label,
