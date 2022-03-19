@@ -285,8 +285,12 @@
 			<div class="col-lg-8">	
 				<div class="witr_humanist_title">
 					<div class="witr_section_title_inner text-left">
-						<h2>WHAT WE DO</h2>		
-						<h3>We do it for all people<br>humanist project</h3>		
+						<h2>WHAT WE DO</h2>
+						<div class="d-inline">
+							<h3>To Register your ward for any of these, </h3>
+							<a class="" href="{% url 'contact' %}"><h3><u>Contact Us</u></h3></a></br>
+						</div>
+						
 					</div>
 				</div>				
 			</div>
@@ -433,7 +437,7 @@
 						<div class="witr_team_section">
 							<img src="{{volunteer.image.url}}" height="330px" width="370px" alt="">		
 							<div class="team_overlay_icon all_team_icon_o_color">
-								<a href="#">
+								<a href="{{volunteer.social_handle_link}}">
 									<i class="icofont-redo"></i>
 								</a>
 							</div>
@@ -488,7 +492,7 @@
 									<div class="col-lg-4 col-md-6">
 										<div class="event-page-title_adn ">
 											<p>Goal: ${{event.donations}}/${{event.goal}}</p>
-											<h2><a href="single-event.html">{{event.name}}</a></h2>
+											<h2><a href="{% url 'event_detail' event.id event.name %}">{{event.name}}</a></h2>
 											<div class="themex-event-meta-left_adn">
 												<span><i class="fas fa-map-marker-alt"></i>{{event.event_location}}</span>
 											</div>

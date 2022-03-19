@@ -31,13 +31,13 @@
 							<div class="row themex-single-event_adn witr_event_style_5">
 								<div class="col-lg-3 col-md-6">
 									<div class="themex-event-thumb_adn">
-										<a href="single-event.html"> <img  src="{% static 'assets/images/event-thumb-1.jp' %}g" alt=""></a>
+										<a href="{% url 'event_detail' event.id event.name %}"> <img  src="{{event.thumbnail.url}}" alt=""></a>
 									</div>									
 								</div>
 								<div class="col-lg-4 col-md-6">
 									<div class="event-page-title_adn ">
 										<p>Goal: ${{event.donations}}/${{event.goal}}</p>
-										<h2><a href="single-event.html">{{event.name}}</a></h2>
+										<h2><a href="{% url 'event_detail' event.id event.name %}">{{event.name}}</a></h2>
 										<div class="themex-event-meta-left_adn">
 											<span><i class="fas fa-map-marker-alt"></i>{{event.event_location}}</span>
 										</div>
