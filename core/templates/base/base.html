@@ -75,7 +75,7 @@
 									<a href="index.html">Newsroom</a>
 									<ul class="sub-menu">
 										{% for category in categories %}
-											<li><a href="{% url 'category' {{category.name}} %}">{{category.name}}</a></li>
+											<li><a href="{% url 'category' category.name %}">{{category.name}}</a></li>
 										{% endfor %}
 									</ul>
 								</li>
