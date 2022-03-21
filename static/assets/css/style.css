@@ -13341,7 +13341,7 @@ themex Event 3 CSS
     display: inline-block;
 }
 .witr_event_btn{
-    margin-top: 30px;
+    margin-top: 5px;
 }
 .witr_event_btn a{
     border-radius: 5px;
@@ -13352,7 +13352,7 @@ themex Event 3 CSS
     padding: 13px 25px;
     -webkit-transition: 1s;
     transition: 1s;	
-	margin-top: 25px;	
+	margin-top: 15px;	
     background: #1e88e5;
 }
  .witr_event_btn a:hover{
@@ -13416,7 +13416,7 @@ color: #fff;
     padding-top: 65px;	
 }
 .witr_event_style_5 .witr_event_btn {
-    margin-top: 55px;
+    /* margin-top: 55px; */
 }
 
 /*=====================
@@ -15349,4 +15349,8 @@ width: 121px;
 
 .feature2{
 	padding:100px 0px 74px;
+}
+
+.contact_btn_home a u{
+    font-size: inherit;
 }

@@ -29,9 +29,9 @@
 				<div class="col-lg-7 col-md-9 col-sm-12">
 					<div class="top-address">
 						<p>	
-							<span><i class="fas fa-home"></i>Themex Floor New World UK.</span>
+							<!-- <span><i class="fas fa-home"></i>Themex Floor New World UK.</span> -->
 							<a href="#"><i class="fas fa-phone-alt"></i>+998556778345</a>
-							<a href="#"><i class="fas fa-envelope"></i>demo@example.com</a>
+							<a href="#"><i class="fas fa-envelope"></i>info@communitycentrechildrenmission.ca</a>
 						</p>
 					</div>
 				</div>
@@ -71,7 +71,14 @@
 								<li><a href="{% url 'home' %}">Home</a></li>
 								<li><a href="{% url 'about' %}">About</a></li>
 								<li><a href="{% url 'events' %}">Events</a></li>
-								<li><a href="{% url 'article_list' %}">Blog</a></li>
+								<li class="menu-item-has-children">
+									<a href="index.html">Newsroom</a>
+									<ul class="sub-menu">
+										{% for category in categories %}
+											<li><a href="{% url 'category' {{category.name}} %}">{{category.name}}</a></li>
+										{% endfor %}
+									</ul>
+								</li>
 								<li><a href="{% url 'contact' %}">Contact</a></li>
 								<div class="donate-btn-header">
 									<a class="dtbtn" href="{% url 'donate' %}">Donate Now</a>	
