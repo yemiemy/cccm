@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views.generic import ListView, DetailView, View
 from .models import Article, Comment, Category, Event, Person
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import send_mass_mail
 from django.template.loader import render_to_string
 import stripe 
 stripe.api_key = 'sk_test_26PHem9AhJZvU623DfE1x4sd'
@@ -35,21 +35,19 @@ def contact(request):
         subject = request.POST.get("subject", None)
         message = request.POST.get("message", None)
 
-        print(name, email, subject, message)
-        #TODO: use the send_mail() to send an email to their email address.
         context = {
             'name':name,
             'subject':subject,
             'email':email,
             'message':message
         }
-        msg_content = render_to_string('emails/contact_form_admin.txt', context)
-        send_mail(
-            subject,
-            msg_content,
-            'info@communitycenterchildrenmission.ca',
-            ['info@communitycenterchildrenmission.ca'],
-            fail_silently=False)
+        
+        msg_content_admin = render_to_string('emails/contact_form_admin.txt', context)
+        msg_content_user = render_to_string('emails/contact_form_user.txt', context)
+        message_to_admin = (subject, msg_content_admin, 'info@communitycenterchildrenmission.ca', ['info@communitycenterchildrenmission.ca'])
+        message_to_user = (subject, msg_content_user, 'info@communitycenterchildrenmission.ca', [email])  
+
+        send_mass_mail((message_to_user, message_to_admin), fail_silently=False)
         messages.success(request, "Your message has been successfully sent.")
     return render(request, "contact.html", {'categories':Category.objects.order_by('-id')})
 

@@ -1,0 +1,16 @@
+NEW MESSAGE NOTIFICATION
+
+
+Hello admin,
+
+Contact form details:
+---------------------
+
+
+NAME: {{name}}
+EMAIL: {{email}}
+
+MESSAGE: {{message}}
+
+
+reply to: {{email}}
