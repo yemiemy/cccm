@@ -120,6 +120,21 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+# Email
+# SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'mail.privateemail.com'
+EMAIL_HOST_USER = 'info@communitycenterchildrenmission.ca'
+EMAIL_HOST_PASSWORD = 'Cmission@2022'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSl = False
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 

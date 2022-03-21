@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Article, Comment, Category, Event, Volunteer
+from .models import Article, Comment, Category, Event, Person
 # Register your models here.
 
 admin.site.register(Article)
 admin.site.register(Comment)
 admin.site.register(Category)
 admin.site.register(Event)
-admin.site.register(Volunteer)
+admin.site.register(Person)

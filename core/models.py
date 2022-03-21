@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth import get_user_model
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -8,16 +9,15 @@ from PIL import Image
 
 User = get_user_model()
 
-class Volunteer(models.Model):
+class Person(models.Model):
     name = models.CharField(max_length=150)
-    email = models.EmailField(max_length=254)
-    phone = models.CharField(max_length=50, help_text="Volunteer mobile phone")
-    image = models.ImageField(upload_to='volunteers/')
-    job_role = models.CharField(max_length=150)
-    education = models.CharField(max_length=50, help_text="Volunteer educational background")
+    image = models.ImageField(upload_to='persons/')
+    job_role = models.CharField(max_length=150, null=True, blank=True)
+    is_staff = models.BooleanField(default=False)
+    is_member_of_board = models.BooleanField(default=False)
     social_handle_link = models.URLField(
         max_length=500, null=True, blank=True, 
-        help_text="Volunteer social profile e.g. LinkedIn, Instagram or Twitter.")
+        help_text="Person social profile e.g. LinkedIn, Instagram or Twitter.")
 
     def __str__(self) -> str:
         return self.name
@@ -67,9 +67,14 @@ class Article(models.Model):
         null=True, 
         help_text="Select a category that this article belong to."
         )
-    featured_image = models.ImageField(upload_to='articles/', null=True, blank=True, help_text="Article image")
+    featured_image = models.ImageField(upload_to='articles/', default="default.jpg", help_text="Article image")
     image_credit = models.CharField(max_length=120, null=True, blank=True)
-    content = RichTextUploadingField()
+    content = RichTextUploadingField(null=True, blank=True)
+    link = models.URLField(
+        max_length=500, 
+        null=True, 
+        blank=True, 
+        help_text="Provide an external URL to the article if you don't want to create a content.")
     featured = models.BooleanField(default=False)
     date_stamp = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=False)
