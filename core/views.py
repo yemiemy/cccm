@@ -120,7 +120,7 @@ class ArticleDetailView(DetailView):
 
 class CategoryArticleListView(ListView):
     model = Article
-    template_name = 'Article/category_article_list.html'
+    template_name = 'Article/article_list.html'
     paginate_by = 4
     ordering = ['-id']
 
