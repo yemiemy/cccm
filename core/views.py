@@ -47,8 +47,8 @@ def contact(request):
         send_mail(
             subject,
             msg_content,
-            'contact@mydomain.com',
-            [email],
+            'info@communitycenterchildrenmission.ca',
+            ['info@communitycenterchildrenmission.ca'],
             fail_silently=False)
         messages.success(request, "Your message has been successfully sent.")
     return render(request, "contact.html", {'categories':Category.objects.order_by('-id')})
@@ -90,7 +90,7 @@ class CreatePaymentSessionView(View):
 
 def donate(request):
     context = {
-        
+        'categories':Category.objects.order_by('-id')
     }
     return render(request, "donate.html", context)
 

@@ -130,7 +130,6 @@ EMAIL_HOST_USER = 'info@communitycenterchildrenmission.ca'
 EMAIL_HOST_PASSWORD = 'Cmission@2022'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_USE_SSl = False
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
