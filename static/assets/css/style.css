@@ -9717,7 +9717,7 @@ color: #fff;
     padding: 61px 15px 60px;
 }
 .singleSS:after{
-    background: url(../images/corporate/5.png) no-repeat right top;
+    background: url() no-repeat right top;
     width: 288px;
     height: 216px;
     position: absolute;
@@ -9732,7 +9732,7 @@ color: #fff;
 	    z-index: -1;
 }
 .singleSS.witr_service_7:after{
-    background: url(../images/corporate/themex_s.png) no-repeat right top;
+    background: url() no-repeat right top;
     content: '';
 	    z-index: -1;
 }
@@ -9759,7 +9759,7 @@ font-size: 32px;
     color: #28f200;
 }
 .SIBG_1{
-  /*   background: url(../images/corporate/s1.png) no-repeat center center / cover; */
+  /*   background: url() no-repeat center center / cover; */
 	position:relative;
 
 }
