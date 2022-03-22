@@ -1,19 +1,22 @@
 {% if messages %}
 {% for message in messages %}
   <div class="alert {% if 'success' in message.tags %}alert-success{% elif 'warning' in message.tags %}alert-warning{% elif 'error' in message.tags %}alert-danger{% else %}alert-info{% endif %} alert-dismissible fade show" role="alert">
-    {% if 'success' in message.tags %}
-    <strong>Success:</strong>
-    {% elif 'warning' in message.tags %}
-    <strong>Warning:</strong>
-    {% elif 'error' in message.tags %}
-    <strong>Error:</strong>
-    {% endif %} 
-  
-    {{message}}
+    <marquee behavior="" direction="">
+      {% if 'success' in message.tags %}
+      <strong>Success:</strong>
+      {% elif 'warning' in message.tags %}
+      <strong>Warning:</strong>
+      {% elif 'error' in message.tags %}
+      <strong>Error:</strong>
+      {% endif %} 
     
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+      {{message}}
+    </marquee>
+    
+    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
-    </button>
+    </button> -->
+    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
   </div>
   {% endfor %}
 {% endif %}
