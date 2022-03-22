@@ -9,11 +9,14 @@ from PIL import Image
 
 User = get_user_model()
 
+class Partner(models.Model):
+    partner_logo = models.ImageField(upload_to='partners/')
+
+
 class Person(models.Model):
     name = models.CharField(max_length=150)
     image = models.ImageField(upload_to='persons/')
     job_role = models.CharField(max_length=150, null=True, blank=True)
-    is_staff = models.BooleanField(default=False)
     is_member_of_board = models.BooleanField(default=False)
     social_handle_link = models.URLField(
         max_length=500, null=True, blank=True, 
@@ -21,6 +24,16 @@ class Person(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.image:
+            img = Image.open(self.image.path)
+
+            if img.height > 360 or img.width > 345:
+                output_size = (345,360)
+                img.thumbnail(output_size)
+                img.save(self.image.path)
 
 class Event(models.Model):
     name = models.CharField(max_length=150, help_text="Name of the event")
@@ -39,6 +52,15 @@ class Event(models.Model):
     def __str__(self) -> str:
         return self.name
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.thumbnail:
+            img = Image.open(self.thumbnail.path)
+
+            if img.height > 432 or img.width > 612:
+                output_size = (612,432)
+                img.thumbnail(output_size)
+                img.save(self.thumbnail.path)
 
 """
 Blog
