@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Comment, Category, Event, Person
+from .models import Article, Comment, Category, Event, Person, Partner
 # Register your models here.
 
 admin.site.register(Article)
@@ -7,3 +7,4 @@ admin.site.register(Comment)
 admin.site.register(Category)
 admin.site.register(Event)
 admin.site.register(Person)
+admin.site.register(Partner)

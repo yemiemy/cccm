@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, View
-from .models import Article, Comment, Category, Event, Person
+from .models import Article, Comment, Category, Event, Person, Partner
 from django.contrib import messages
 from django.core.mail import send_mass_mail
 from django.template.loader import render_to_string
@@ -16,14 +16,16 @@ def home(request):
         'persons':Person.objects.all()[:3],
         'events':Event.objects.filter(is_active=True).order_by('-id')[:2],
         'articles':Article.objects.order_by('-id')[:3],
-        'categories':Category.objects.order_by('-id')
+        'categories':Category.objects.order_by('-id'),
+        'partners':Partner.objects.order_by('-id')
     }
     return render(request, "index.html", context)
 
 def about(request):
     context = {
         'persons':Person.objects.all(),
-        'categories':Category.objects.order_by('-id')
+        'categories':Category.objects.order_by('-id'),
+        'partners':Partner.objects.order_by('-id')
     }
     return render(request, "about.html", context)
 
