@@ -15190,17 +15190,13 @@ span.witr_percent {
 .form_field2 {
     margin-bottom: 20px;
 }
-.form_field2 select {
+.form_field_btn {
     outline: none;
-    border-radius: 0;
-    min-width: 155px;
-    border: 1px solid #ccc;
     margin: 0 0 15px;
     display: block;
     clear: both;
     color: #333;
     background-color: #fdfdfd;
-	height: 40px;
 }
 .form_field2 span{
     background-color: #f2f2f2;

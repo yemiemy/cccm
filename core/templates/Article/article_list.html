@@ -10,7 +10,7 @@
 					<ul>
 						<li><a href="{% url 'home' %}">Home</a></li>
 						<li><i class="fas fa-angle-right"></i></li>
-						<li>Blog</li>
+						<li>{{view.kwargs.name}}</li>
 					</ul>						
 				</div>
 			</div>
@@ -28,19 +28,38 @@
 			{% for article in object_list %}
 				<div class=" col-lg-4  col-md-6 col-sm-12 ">
 					<div class="blog-part all_blog_color">
-						<div class="blog_part_inner">
-							<div class="witr_blog_imags">
-								<div class="blog-img">
-									<a href="{% url 'article_detail' article.id article.slug %}"> <img src="{{article.featured_image.url}}" alt=""> </a>
+						
+						{% if not article.link %}
+							<div class="blog_part_inner">
+								<div class="witr_blog_imags">
+									<div class="blog-img">
+										<a href="{% url 'article_detail' article.id article.slug %}"> <img src="{{article.featured_image.url}}" alt=""> </a>
+									</div>
+								</div>
+								<div class="wblog-content blog-content-2 all_blog_color">
+									<span><a href="#"><i class="icofont-calendar"></i></a>{{article.date_stamp}}</span>
+									<!-- <span><a href="#"><i class="icofont-speech-comments"></i>{{article.comment_set.count}}</a></span> -->
+									<h5><a  href="{% url 'article_detail' article.id article.slug %}">{{article.title}}</a></h5>
+									<a class="btn2"  href="{% url 'article_detail' article.id article.slug %}">Read More</a>
 								</div>
 							</div>
-							<div class="wblog-content blog-content-2 all_blog_color">
-								<span><a href="#"><i class="icofont-calendar"></i></a>{{article.date_stamp}}</span>
-								<!-- <span><a href="#"><i class="icofont-speech-comments"></i>{{article.comment_set.count}}</a></span> -->
-								<h5><a  href="{% url 'article_detail' article.id article.slug %}">{{article.title}}</a></h5>
-								<a class="btn2"  href="{% url 'article_detail' article.id article.slug %}">Read More</a>
+						{% else %}
+							<div class="blog_part_inner">
+								<div class="witr_blog_imags">
+									<div class="blog-img">
+										<a href="{{article.link}}"> <img src="{{article.featured_image.url}}" alt=""> </a>
+									</div>
+								</div>
+								<div class="wblog-content blog-content-2 all_blog_color">
+									<span><a href="#"><i class="icofont-calendar"></i></a>{{article.date_stamp}}</span>
+									<!-- <span><a href="#"><i class="icofont-speech-comments"></i>{{article.comment_set.count}}</a></span> -->
+									<h5><a  href="{{article.link}}">{{article.title}}</a></h5>
+									<a class="btn2"  href="{{article.link}}">Read More</a>
+								</div>
 							</div>
-						</div>
+						{% endif %}
+							
+						
 					</div>
 				</div>
 			{% endfor %}

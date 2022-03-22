@@ -5,7 +5,7 @@
 
 		<meta charset="UTF-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>Themex - Nonprofit Charity Responsive HTML5 Template</title>
+		<title>Community Center for Children Mission </title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Favicon Icon -->
@@ -29,8 +29,7 @@
 				<div class="col-lg-7 col-md-9 col-sm-12">
 					<div class="top-address">
 						<p>	
-							<!-- <span><i class="fas fa-home"></i>Themex Floor New World UK.</span> -->
-							<a href="#"><i class="fas fa-phone-alt"></i>+998556778345</a>
+							<a href="tel:647-303-0219"><i class="fas fa-phone-alt"></i>647-303-0219</a>
 							<a href="#"><i class="fas fa-envelope"></i>info@communitycentrechildrenmission.ca</a>
 						</p>
 					</div>
@@ -40,10 +39,9 @@
 					<div class="top-right-menu">
 						<ul class="social-icons text-right text_m_center">
 							<li><a  href="#" ><i class="icofont-facebook"></i></a></li>
-							<li><a  href="#" ><i class="icofont-twitter"></i></a></li>
-							<li><a  href="#"><i class="icofont-instagram"></i></a></li>
+							<li><a  href="https://twitter.com/ccfchildmission" ><i class="icofont-twitter"></i></a></li>
+							<li><a  href="https://www.instagram.com/ccfchildmission/"><i class="icofont-instagram"></i></a></li>
 							<li><a  href="#"><i class="fab fa-linkedin-in"></i></a></li>
-							<li><a  href="#"><i class="icofont-dribbble"></i></a></li>								
 						</ul>
 					</div>
 				</div>	
@@ -72,7 +70,7 @@
 								<li><a href="{% url 'about' %}">About</a></li>
 								<li><a href="{% url 'events' %}">Events</a></li>
 								<li class="menu-item-has-children">
-									<a href="index.html">Newsroom</a>
+									<a onclick="return false;" href="/">Newsroom</a>
 									<ul class="sub-menu">
 										{% for category in categories %}
 											<li><a href="{% url 'category' category.name %}">{{category.name}}</a></li>
@@ -134,7 +132,7 @@
 		<div class="container">
 			<div class="row">
 					<div  class="widget about_us">
-						<h2 class="widget-title">Local Address</h2>			
+						<h2 class="widget-title">Address</h2>			
 						<div class="about-footer">
 							<div class="footer-widget address">
 								<div class="footer-logo"></div>
@@ -152,7 +150,7 @@
 											<i class="fa fa-phone"></i>
 										</div> 									
 										<div class="footer-sociala-info">   
-											<p>(+00) 123-456-789</p>
+											<a class="text-light" href="tel:647-303-0219">647-303-0219</a>
 										</div>
 									</div>
 									<div class="footer_s_inner"> 
@@ -180,14 +178,14 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-6  col-sm-12">
 					<div class="copy-right-text">
-						<p>Copyright &copy; themex all rights reserved.</p>
+						<p>Copyright &copy; CCCM all rights reserved.</p>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6  col-sm-12">				
 					<div class="footer-menu">
 						<ul  class="text-right">
 							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Contact Us</a></li>
+							<li><a href="{% url 'contact' %}">Contact Us</a></li>
 						</ul> 				
 					</div>
 				</div>
