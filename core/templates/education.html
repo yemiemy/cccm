@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="breadcumb-area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-md-12 txtc">
+				<div class="breadcumb-inner">
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><i class="fas fa-angle-right"></i></li>
+						<li>Education</li>
+					</ul>						
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- single_service_area -->
+<div class="single_service_area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="single_service_thumb">
+					<img src="{% static 'assets/images/education.png' %}" alt="">
+				</div>
+				<div class="witr_text_widget">
+					<div class="single_text_widget_inner">
+						<h2>Reading, Resources and Book drives</h2>		
+						<div class="single_widget_conacet">
+							<p> Reading literacy is the barometer to which a community can be tested for success or failure. A successful Community produces successful children. Every child must have the privilege,  opportunity and right to all relevant reading resources possible, regardless of colour, gender, and status.  Unfortunately, in our world, this is often not a reality for many low-income earners. Education falls by the wayside as people, groups struggle to find daily means such as food, shelter, and healthcare. To properly challenge these gaps in our educational system requires enormous endeavours like time, manpower, money, and agreement among opposite ends of the political spectrum. </p>
+						</div>
+						<div class="single_widget_conacet">
+							<p>Thankfully, we don’t have to wait until all that is straightened out in making a difference in our community. Right now, there are many opportunities created for our community children of all ages, gender, and colour through Community Centre for Children Mission a  non-profit organization here in Canada.</p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

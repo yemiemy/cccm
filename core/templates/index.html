@@ -236,11 +236,11 @@
 			<div class="col-lg-8">	
 				<div class="witr_humanist_title">
 					<div class="witr_section_title_inner text-left">
-						<h2>WHAT WE DO</h2>
-						<div class="d-inline">
+						<h2>Ongoing Activities</h2>
+						<!-- <div class="d-inline">
 							<h3>To Register your ward, </h3>
 							<a class="" href="{% url 'contact' %}"><h3><u>Contact Us</u></h3></a></br>
-						</div>
+						</div> -->
 						
 					</div>
 				</div>				
@@ -253,10 +253,10 @@
 						<div class="service_top_image"></div>
 						<div class="text_box all_icon_color">
 							<i class="icofont-book"></i>
-							<h3>Education</h3>		
-							<p>Reading, Resources and Book drives </p>		
+							<h2>Education</h2>		
+							<h5>Reading, Resources and Book drives </h5>
 							<div class="service-btn">
-								<a data-toggle="modal" data-target="#EducationModalLong" href="#modal">Read More</a>
+								<a href="{% url 'education' %}">Read More</a>
 							</div>
 						</div> 						
 					</div>
@@ -268,10 +268,10 @@
 						<div class="service_top_image"></div>
 						<div class="text_box all_icon_color">
 							<i class="icofont-speech-comments"></i>
-							<h3>Mentorship</h3>		
-							<p>Insightful Champions </p>
+							<h2>Mentorship</h2>		
+							<h5>Insightful Champions </h5>
 							<div class="service-btn">
-								<a data-toggle="modal" data-target="#MentorshipModalLong" href="#modal">Read More</a>
+								<a href="{% url 'mentorship' %}">Read More</a>
 							</div>
 						</div> 						
 					</div>
@@ -283,10 +283,10 @@
 						<div class="service_top_image"></div>
 						<div class="text_box all_icon_color">
 							<i class="icofont-verification-check"></i>
-							<h3>Empowerment</h3>		
-							<p>Tutoring </p>
+							<h2>Empowerment</h2>		
+							<h5>Tutoring </h5>
 							<div class="service-btn">
-								<a data-toggle="modal" data-target="#EmpowermentModalLong" href="#modal">Read More</a>
+								<a href="{% url 'empowerment' %}">Read More</a>
 							</div>
 						</div> 						
 					</div>
@@ -298,10 +298,10 @@
 						<div class="service_top_image"></div>
 						<div class="text_box all_icon_color">
 							<i class="icofont-coconut-water"></i>
-							<h3>Care</h3>		
-							<p>Daycare, After-School and Summer camp</p>
+							<h2>Care</h2>
+							<h5>Daycare, After-School and Summer camp</h5>
 							<div class="service-btn">
-								<a data-toggle="modal" data-target="#CareModalLong" href="#modal">Read More</a>
+								<a href="{% url 'care' %}">Read More</a>
 							</div>
 						</div> 						
 					</div>
@@ -313,10 +313,10 @@
 						<div class="service_top_image"></div>
 						<div class="text_box all_icon_color">
 							<i class="fas fa-hand-holding-heart"></i>
-							<h3>Suprise a Child</h3>		
-							<p>Make a child's holiday dream come true. </p>
+							<h2>Suprise a Child</h2>		
+							<h5>Make a child's holiday dream come true. </h5>
 							<div class="service-btn">
-								<a data-toggle="modal" data-target="#SupriseModalLong" href="#modal">Read More</a>
+								<a href="{% url 'suprise' %}">Read More</a>
 							</div>
 						</div> 						
 					</div>
@@ -533,28 +533,6 @@
 <!-- Modal -->
 
 <div>
-<div class="modal fade" id="EducationModalLong" tabindex="-1" role="dialog" aria-labelledby="EducationModalLongTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h3 class="modal-title" id="EducationModalLongTitle">Education</h3>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			<h6 class="text-dark"><u>Reading, Resources and Book drives:</u></h6>
-			<p> Reading literacy is the barometer to which a community can be tested for success or failure. A successful Community produces successful children. Every child must have the privilege,  opportunity and right to all relevant reading resources possible, regardless of colour, gender, and status.  Unfortunately, in our world, this is often not a reality for many low-income earners. Education falls by the wayside as people, groups struggle to find daily means such as food, shelter, and healthcare. To properly challenge these gaps in our educational system requires enormous endeavours like time, manpower, money, and agreement among opposite ends of the political spectrum. 
-				<br>
-				<br>
-				Thankfully, we don’t have to wait until all that is straightened out in making a difference in our community. Right now, there are many opportunities created for our community children of all ages, gender, and colour through Community Centre for Children Mission a  non-profit organization here in Canada. 
-			</p>
-
-		</div>
-		
-		</div>
-	</div>
-	</div>
 
 	<div class="modal fade" id="MentorshipModalLong" tabindex="-1" role="dialog" aria-labelledby="MentorshipModalLongTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -567,15 +545,15 @@
 		</div>
 		<div class="modal-body">
 			<h6 class="text-dark"><u>Insightful Champions:</u></h6>
-			<p> There are many questions children nowadays want to ask, but we have discovered that they listen better if the answer is provided by someone apart from their parents. 
+			<p> 
 				<br> 
-				<br> That is why we provide mentorship for children from age 9-16years and 17- 18years. We have great professionals/volunteers that are ready to educate them on career talks, entrepreneurship and how to build their confidence.  
+				<br> 
 				<br>
-				<br> They will have one on one opportunities with leaders all over the world in different works of life. They will be groomed on how to eradicate fear and be trained on how to become public speakers. 
+				<br> 
 				<br>
-				<br> They will be enlightened on different issues that are affecting children and how they can overcome them. 
+				<br> 
 				<br>
-				<br> These groups of young ones will have the opportunity to travel around the globe to meet world leaders.  Their exclusive interviews will be uploaded on the website as a blog. They will be visiting educational and interesting places around the world
+				<br> 
 				
 			</p>
 
@@ -585,72 +563,7 @@
 	</div>
 	</div>
 
-	<div class="modal fade" id="EmpowermentModalLong" tabindex="-1" role="dialog" aria-labelledby="EmpowermentModalLongTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h3 class="modal-title" id="EmpowermentModalLongTitle">Empowerment</h3>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			<h6 class="text-dark"><u>Tutoring:</u></h6>
-			<p> We have sound teachers and volunteers that graduated from well-known universities that are professionally qualified to teach your children.  
-				<br>
-				<br> We offer academic tutoring online classes, home tutoring and class tutoring at our location based on various school curricula. We have Volunteers and teachers for different subjects like Mathematics, Language,  French, Chemistry, Physics, Biology, Coding, Web-designs, and Artwork.  
-			</p>
 
-		</div>
-		
-		</div>
-	</div>
-	</div>
-
-	<div class="modal fade" id="CareModalLong" tabindex="-1" role="dialog" aria-labelledby="CareModalLongTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h3 class="modal-title" id="CareModalLongTitle">Care</h3>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			<h6 class="text-dark"><u>Daycare, After-School and Summer Camp:</u></h6>
-			<p>Our daycare service is for 3 months to 4-year-old children. Our community centre has worked to incorporate early learning for every child along with provincial pedagogy for early learning to strengthen the quality of our program and ensure a positive experience that promotes the health, safety, nutrition, and wellbeing of your children. 
-				<br> <br> We also provide after school care for school-aged children from ages 4 to 12. We have professional early childhood educators/ Volunteers on the ground that will assist your children with their Homework. 
-				
-			</p>
-
-		</div>
-		
-		</div>
-	</div>
-	</div>
-
-	<div class="modal fade" id="SupriseModalLong" tabindex="-1" role="dialog" aria-labelledby="SupriseModalLongTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h3 class="modal-title" id="SupriseModalLongTitle">Suprise a Child</h3>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			<h6 class="text-dark"><u>Make a Child’s Holiday dream come true:</u></h6>
-			<p>While many children exchange gifts and spend time with their families and friends to celebrate holidays,  there are many children who are not so fortunate in our community. We at Community Center for Children's mission help our partners demonstrate their love for these sets of children. If you want to do something or give back to the community. We identify with partners who want to give gifts to children such as backpacks, toys, games, blankets clothes, shoes, coats, and books these eliminate parents' burden and creates memories for the children. 
-				<br> <br> With the help and donations of our partners, we can create an unforgettable experience for children with critical illness based on their individual dreams. CCCM helps those children feel cared for through your help and donations. 
-				<br> <br>	CCCM will match your donation for tax purposes.
-				
-			</p>
-
-		</div>
-		
-		</div>
-	</div>
-	</div>
 </div>
   
 {% endblock %}

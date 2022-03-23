@@ -29,6 +29,57 @@ def about(request):
     }
     return render(request, "about.html", context)
 
+def education(request):
+    context = {
+        'persons':Person.objects.all()[:3],
+        'events':Event.objects.filter(is_active=True).order_by('-id')[:2],
+        'articles':Article.objects.order_by('-id')[:3],
+        'categories':Category.objects.order_by('-id'),
+        'partners':Partner.objects.order_by('-id')
+    }
+    return render(request, "education.html", context)
+
+def mentorship(request):
+    context = {
+        'persons':Person.objects.all()[:3],
+        'events':Event.objects.filter(is_active=True).order_by('-id')[:2],
+        'articles':Article.objects.order_by('-id')[:3],
+        'categories':Category.objects.order_by('-id'),
+        'partners':Partner.objects.order_by('-id')
+    }
+    return render(request, "mentorship.html", context)
+
+def care(request):
+    context = {
+        'persons':Person.objects.all()[:3],
+        'events':Event.objects.filter(is_active=True).order_by('-id')[:2],
+        'articles':Article.objects.order_by('-id')[:3],
+        'categories':Category.objects.order_by('-id'),
+        'partners':Partner.objects.order_by('-id')
+    }
+    return render(request, "care.html", context)
+
+def suprise(request):
+    context = {
+        'persons':Person.objects.all()[:3],
+        'events':Event.objects.filter(is_active=True).order_by('-id')[:2],
+        'articles':Article.objects.order_by('-id')[:3],
+        'categories':Category.objects.order_by('-id'),
+        'partners':Partner.objects.order_by('-id')
+    }
+    return render(request, "suprise.html", context)
+
+def empowerment(request):
+    context = {
+        'persons':Person.objects.all()[:3],
+        'events':Event.objects.filter(is_active=True).order_by('-id')[:2],
+        'articles':Article.objects.order_by('-id')[:3],
+        'categories':Category.objects.order_by('-id'),
+        'partners':Partner.objects.order_by('-id')
+    }
+    return render(request, "empowerment.html", context)
+
+
 def contact(request):
     # try:
     if request.method == "POST":

@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="breadcumb-area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-md-12 txtc">
+				<div class="breadcumb-inner">
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><i class="fas fa-angle-right"></i></li>
+						<li>Care</li>
+					</ul>						
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- single_service_area -->
+<div class="single_service_area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="single_service_thumb">
+					<img src="{% static 'assets/images/childcare.jpg' %}" alt="">
+				</div>
+				<div class="witr_text_widget">
+					<div class="single_text_widget_inner">
+						<h2>Daycare, After-School and Summer Camp</h2>		
+						<div class="single_widget_conacet">
+							<p>Our daycare service is for 3 months to 4-year-old children. Our community centre has worked to incorporate early learning for every child along with provincial pedagogy for early learning to strengthen the quality of our program and ensure a positive experience that promotes the health, safety, nutrition, and wellbeing of your children.</p>
+						</div>
+						<div class="single_widget_conacet">
+							<p>We also provide after school care for school-aged children from ages 4 to 12. We have professional early childhood educators/ Volunteers on the ground that will assist your children with their Homework. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="breadcumb-area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-md-12 txtc">
+				<div class="breadcumb-inner">
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><i class="fas fa-angle-right"></i></li>
+						<li>Suprise a child</li>
+					</ul>						
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- single_service_area -->
+<div class="single_service_area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="single_service_thumb">
+					<img src="{% static 'assets/images/suprise.png' %}" alt="">
+				</div>
+				<div class="witr_text_widget">
+					<div class="single_text_widget_inner">
+						<h2>Make a Child’s Holiday dream come true</h2>		
+						<div class="single_widget_conacet">
+							<p>While many children exchange gifts and spend time with their families and friends to celebrate holidays,  there are many children who are not so fortunate in our community. We at Community Center for Children's mission help our partners demonstrate their love for these sets of children. If you want to do something or give back to the community. We identify with partners who want to give gifts to children such as backpacks, toys, games, blankets clothes, shoes, coats, and books these eliminate parents' burden and creates memories for the children. </p>
+						</div>
+						<div class="single_widget_conacet">
+							<p>With the help and donations of our partners, we can create an unforgettable experience for children with critical illness based on their individual dreams. CCCM helps those children feel cared for through your help and donations. </p>
+							<p><br> CCCM will match your donation for tax purposes.</p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+{% endblock %}

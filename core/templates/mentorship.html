@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="breadcumb-area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-md-12 txtc">
+				<div class="breadcumb-inner">
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><i class="fas fa-angle-right"></i></li>
+						<li>Mentorship</li>
+					</ul>						
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- single_service_area -->
+<div class="single_service_area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="single_service_thumb">
+					<img src="{% static 'assets/images/pexels-photo-1.jpeg' %}" alt="">
+				</div>
+				<div class="witr_text_widget">
+					<div class="single_text_widget_inner">
+						<h2>Insightful Champions</h2>		
+						<div class="single_widget_conacet">
+							<p>There are many questions children nowadays want to ask, but we have discovered that they listen better if the answer is provided by someone apart from their parents. </p>
+						</div>
+						<div class="single_widget_conacet">
+							<p>That is why we provide mentorship for children from age 9-16years and 17- 18years. We have great professionals/volunteers that are ready to educate them on career talks, entrepreneurship and how to build their confidence.  </p>
+							<p>They will have one on one opportunities with leaders all over the world in different works of life. They will be groomed on how to eradicate fear and be trained on how to become public speakers. </p>
+							<p>They will be enlightened on different issues that are affecting children and how they can overcome them. </p>
+							<p>These groups of young ones will have the opportunity to travel around the globe to meet world leaders.  Their exclusive interviews will be uploaded on the website as a blog. They will be visiting educational and interesting places around the world</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<div class="fit-aspect-ratio">
+					<iframe class="elementor-video-iframe" allowfullscreen="" title="youtube Video Player" src="https://www.youtube.com/embed/fi4gZpp6lKA?feature=oembed&amp;start&amp;end&amp;wmode=opaque&amp;loop=0&amp;controls=1&amp;mute=0&amp;rel=0&amp;modestbranding=0"></iframe>		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="breadcumb-area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-md-12 txtc">
+				<div class="breadcumb-inner">
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><i class="fas fa-angle-right"></i></li>
+						<li>Empowerment</li>
+					</ul>						
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- single_service_area -->
+<div class="single_service_area">
+	<div class="container">				
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="single_service_thumb">
+					<img src="{% static 'assets/images/pexels-photo-1.jpeg' %}" alt="">
+				</div>
+				<div class="witr_text_widget">
+					<div class="single_text_widget_inner">
+						<h2>Tutoring</h2>		
+						<div class="single_widget_conacet">
+							<p>We have sound teachers and volunteers that graduated from well-known universities that are professionally qualified to teach your children.  </p>
+						</div>
+						<div class="single_widget_conacet">
+							<p>We offer academic tutoring online classes, home tutoring and class tutoring at our location based on various school curricula. We have Volunteers and teachers for different subjects like Mathematics, Language,  French, Chemistry, Physics, Biology, Coding, Web-designs, and Artwork.  </p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<div class="fit-aspect-ratio">
+					<iframe class="elementor-video-iframe" allowfullscreen="" title="youtube Video Player" src="https://www.youtube.com/embed/fi4gZpp6lKA?feature=oembed&amp;start&amp;end&amp;wmode=opaque&amp;loop=0&amp;controls=1&amp;mute=0&amp;rel=0&amp;modestbranding=0"></iframe>		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
