@@ -2728,7 +2728,7 @@ float: none;
 }
 /* blog css	 */
 .footer-middle {
-	text-align: center;
+	/* text-align: center; */
 }
 .blog-content h5 > a {
 	font-size: 17px;
@@ -2965,7 +2965,7 @@ padding-top: 30px;
 	 float: none; 
 }
 .footer-sociala-info p {
-    text-align: center;
+    /* text-align: center; */
 }
 
 /*====== new css ======= */
