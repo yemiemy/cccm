@@ -39,7 +39,7 @@ class Event(models.Model):
     name = models.CharField(max_length=150, help_text="Name of the event")
     description = RichTextUploadingField()
     event_date_time = models.DateTimeField()
-    thumbnail = models.ImageField(upload_to="events/%Y/%m/%d", null=True, blank=True)
+    thumbnail = models.ImageField(upload_to="events/%Y/%m/%d", default="default_event.jpg", null=True, blank=True)
     registration_link = models.URLField(max_length=500)
     event_location = models.CharField(max_length=150, help_text="Where will the events be happening?")
     date_created = models.DateTimeField(auto_now_add=True)
