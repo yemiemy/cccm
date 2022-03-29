@@ -13236,7 +13236,7 @@ h2.related-projects-title.text-left {
     padding-bottom: 30px;
 }
 .themex-event-meta-left_adn {
-    float: left;
+    /* float: left; */
     position: relative;
     line-height: 1;
 	    margin-top: 6px;
