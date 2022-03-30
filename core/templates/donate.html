@@ -47,7 +47,7 @@
 						{% csrf_token %}
 						<div class="form_field2">
 							<span>$</span>
-							<input  name="amount" type="text"  placeholder="" value="100.00">
+							<input  name="amount" min="0" type="number"  placeholder="" value="100.00">
 						</div>
 						<input type="hidden" name="product_name" value="Donations">
 						<div class="form_field_btn">
