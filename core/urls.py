@@ -1,5 +1,13 @@
 from django.urls import path
-from core.views import home, about, contact, events, donate, ArticleListView, ArticleDetailView, CategoryArticleListView, comments_create_view_api, event_detail, education, mentorship, suprise, care, empowerment
+from core.views import (
+    home, about, contact, events, donate, 
+    ArticleListView, ArticleDetailView, CategoryArticleListView, 
+    comments_create_view_api, event_detail, education, mentorship, 
+    suprise, care, empowerment,
+    CreatePaymentSessionView,
+    success,
+    cancel
+    )
 
 urlpatterns = [
     path('', home, name="home"),
@@ -19,4 +27,8 @@ urlpatterns = [
     path('article/category/<str:name>/', CategoryArticleListView.as_view(), name='category'),
     path('article/comments/<int:article_id>/create/', comments_create_view_api, name='comment_create'),
 
+    #Stripe payment
+    path("create-checkout-session/", CreatePaymentSessionView.as_view(), name="create-checkout-session"),
+    path("success/", success, name="success"),
+    path("cancel/", cancel, name="cancel")
 ]

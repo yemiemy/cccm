@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-import django_heroku
 import os
 from pathlib import Path
 
@@ -46,6 +45,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
 ]
 
+
+STRIPE_SECRET_KEY = "sk_test_51Kf5WxIoRQrTUKU8ZsjXJcK3omkKGSSQdMpc2C4oyScUkDRJ3ya03GsLHI1Ce6ZGEz0etr6FRasoUu9kZ4zHSfPH00YB4IkNoy"
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
@@ -124,7 +125,6 @@ USE_TZ = True
 
 
 # Email
-# SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'mail.privateemail.com'
@@ -152,7 +152,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())

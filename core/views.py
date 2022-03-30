@@ -1,12 +1,15 @@
-from django.shortcuts import get_object_or_404, render
+from os import name
+from django.shortcuts import get_object_or_404, redirect, render
+from django.http import HttpResponse
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, View
 from .models import Article, Comment, Category, Event, Person, Partner
 from django.contrib import messages
 from django.core.mail import send_mass_mail
 from django.template.loader import render_to_string
+from django.conf import settings
 import stripe 
-stripe.api_key = 'sk_test_26PHem9AhJZvU623DfE1x4sd'
+stripe.api_key = settings.STRIPE_SECRET_KEY
 # Create your views here.
 
 YOUR_DOMAIN = "http://127.0.0.1:8000/"
@@ -81,27 +84,29 @@ def empowerment(request):
 
 
 def contact(request):
-    # try:
-    if request.method == "POST":
-        name = request.POST.get("name", None)
-        email = request.POST.get("email", None)
-        subject = request.POST.get("subject", None)
-        message = request.POST.get("message", None)
+    try:
+        if request.method == "POST":
+            name = request.POST.get("name", None)
+            email = request.POST.get("email", None)
+            subject = request.POST.get("subject", None)
+            message = request.POST.get("message", None)
 
-        context = {
-            'name':name,
-            'subject':subject,
-            'email':email,
-            'message':message
-        }
-        
-        msg_content_admin = render_to_string('emails/contact_form_admin.txt', context)
-        msg_content_user = render_to_string('emails/contact_form_user.txt', context)
-        message_to_admin = (subject, msg_content_admin, 'info@communitycenterchildrenmission.ca', ['info@communitycenterchildrenmission.ca'])
-        message_to_user = (subject, msg_content_user, 'info@communitycenterchildrenmission.ca', [email])  
+            context = {
+                'name':name,
+                'subject':subject,
+                'email':email,
+                'message':message
+            }
+            
+            msg_content_admin = render_to_string('emails/contact_form_admin.txt', context)
+            msg_content_user = render_to_string('emails/contact_form_user.txt', context)
+            message_to_admin = (subject, msg_content_admin, 'info@communitycenterchildrenmission.ca', ['info@communitycenterchildrenmission.ca'])
+            message_to_user = (subject, msg_content_user, 'info@communitycenterchildrenmission.ca', [email])  
 
-        send_mass_mail((message_to_user, message_to_admin), fail_silently=False)
-        messages.success(request, "Your message has been successfully sent.")
+            send_mass_mail((message_to_user, message_to_admin), fail_silently=False)
+            messages.success(request, "Your message has been successfully sent.")
+    except:
+        messages.warning(request, "An error occured. Please try again.")
     return render(request, "contact.html", {'categories':Category.objects.order_by('-id')})
 
 def events(request):
@@ -116,7 +121,7 @@ def event_detail(request, id, name):
 
     context = {
         'event':event,
-        'percent': min(int(event.donations / event.goal * 100), 100),
+        'percent': min(int(event.donations / event.goal * 100), 100) if event.goal else 0,
         'categories':Category.objects.order_by('-id')
     }
     return render(request, "event_detail.html", context)
@@ -124,20 +129,34 @@ def event_detail(request, id, name):
 class CreatePaymentSessionView(View):
     def post(self, request, *args, **kwargs):
         try:
+            event_id = self.request.POST.get("event_id", None)
+            product_name = self.request.POST.get("product_name", None)
+            amount = float(self.request.POST.get("amount", 0))
+            if product_name is None: product_name = "Donation"
+            product = stripe.Product.create(name=product_name)
+
+            price = stripe.Price.create(
+                product=product["id"],
+                unit_amount=int(amount*100),
+                currency='cad',
+            )
+            PRICE_ID = price["id"]
+
             checkout_session = stripe.checkout.Session.create(
                 line_items=[
                     {
-                        # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                        'price': '{{PRICE_ID}}',
+                        'price': PRICE_ID,
                         'quantity': 1,
                     },
                 ],
                 mode='payment',
-                success_url=YOUR_DOMAIN + '/success/',
-                cancel_url=YOUR_DOMAIN + '/cancel/',
+                success_url=YOUR_DOMAIN + f'success?product_name={event_id}&amount={amount}',
+                cancel_url=YOUR_DOMAIN + 'cancel/'
             )
         except Exception as e:
-            return str(e)
+            return HttpResponse(str(e))
+
+        return redirect(checkout_session.url, code=303)
 
 def donate(request):
     context = {
@@ -145,6 +164,20 @@ def donate(request):
     }
     return render(request, "donate.html", context)
 
+def success(request):
+    try:
+        amount = request.GET.get("amount", 0)
+        event_id = request.GET.get("product_name", None)
+        event = get_object_or_404(Event, id=event_id)
+        event.donations = event.donations + float(amount)
+        event.save()
+        return render(request, "success.html")
+    except Exception as e:
+        print(e)
+        return render(request, "success.html")
+
+def cancel(request):
+    return render(request, "cancel.html")
 
 # Articles Views
 class ArticleListView(ListView):
