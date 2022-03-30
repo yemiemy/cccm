@@ -1,0 +1,329 @@
+/* keyframes css style */
+
+
+
+/* witr_rotate_all */
+@keyframes witr_rotate_all{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+
+.set_class{
+	animation: witr_rotate_all 800ms ease-out infinite;
+}
+
+
+
+
+/* witr zoom out */
+@keyframes witr_zoom_out{from{opacity:1}to{opacity:0}}
+
+.set_class{
+	animation: witr_zoom_out 800ms ease-out infinite;
+}
+
+/* witr zoom in */
+@keyframes witr_zoom_in{
+	from{opacity:0}to{opacity:1}
+}
+.set_class{
+	animation: witr_zoom_in 800ms ease-out infinite;
+}
+
+/* witr_zoom_wave */
+@keyframes witr_zoom_wave{0%{transform:scale(1);opacity:.8}20%{opacity:.8}100%{transform:scale(5.5);opacity:0}}
+.set_class{
+	animation: witr_zoom_wave 800ms ease-out infinite;
+}
+
+/* witr_slide */
+@keyframes witr_slide{
+  from { background-position: 0 0; }
+    to { background-position: 1920px 0; }
+}
+.set_class{
+	animation: witr_slide 100s linear infinite;
+}
+
+/* witr_up_down */
+@keyframes witr_up_down{0%{margin-top:-150px}100%{margin-top:0}}
+.set_class{
+	animation: witr_up_down 800ms ease-out infinite;
+}
+
+
+
+
+
+
+
+/*========== use =============*/
+
+/* witr_squares_ */
+@keyframes witr_squares{
+	0%{transform:scale(1);opacity:0}
+	20%{transform:scale(1.24);opacity:1}
+	100%{transform:scale(2.1);opacity:0}
+}
+.set_class{
+	animation: witr_squares 2s ease-out infinite;
+}
+/* witr_bounce */
+@keyframes witr_bounce{
+	0%,100%,20%,50%,80%{transform:translateY(0)}
+	40%{transform:translateY(-10px)}
+	60%{transform:translateY(-5px)}
+}
+
+.set_class{
+	animation: witr_bounce 800ms ease-out infinite;
+}
+/* witr_bounce_btn */
+@keyframes witr_bounce_btn{
+	0%,100%,20%,50%,80%{transform:translateY(0)}
+	40%{transform:translateY(-10px)}
+	60%{transform:translateY(0px)}
+}
+
+/* witr_ripple */
+@keyframes witr_ripple {
+    70% {box-shadow: 0 0 0 70px rgba(255, 255, 255, 0);}
+    100% {box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);}
+}
+/* witr_pricing */
+@keyframes witr_pricing{
+  from {
+        transform: translateX(0);
+  }
+  to {
+        transform: translateX(300px);
+  }
+}
+.set_class{
+	animation: witr_pricing 3s linear infinite;
+}
+/* witr_pricing_img */
+@keyframes witr_pricing_img{
+  0%{
+	  transform: translateX(-5px);
+	}
+  100%{
+	  transform: translateX(5px);
+	}
+}
+/* witr_about */
+@keyframes witr_about {
+	0%{transform:translateY(-20px)}
+	100%{transform:translateY(20px)}
+	
+}
+.set_class{
+	 animation: witr_about 3s linear 2s infinite alternate running;
+}
+
+ 
+/*-----------------------
+ Witr Bubble Animation
+------------------------*/
+.witr_bubble_animate {
+    position: absolute;
+    left: -215px;
+    bottom: 0;
+    width: 162%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;	
+}
+
+.witr_circle_bu {
+    background: #fff;
+    bottom: 0;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.witr_circle_bu.witr_small {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+}
+
+.witr_circle_bu.witr_small.witr_square1 {
+    left: 18%;
+    top: 100%;
+	animation: witr_smallBubble 8s ease-in 1s infinite;		
+}
+
+.witr_circle_bu.witr_small.witr_square2 {
+    left: 36%;
+    top: 100%;
+	animation: witr_smallBubble 4s ease-in 2s infinite;		
+}
+
+.witr_circle_bu.witr_small.witr_square3 {
+    left: 54%;
+    top: 100%;
+	animation: witr_smallBubble 6s ease-in 3s infinite;		
+}
+
+.witr_circle_bu.witr_small.witr_square4 {
+    left: 72%;
+    top: 100%;
+	animation: witr_smallBubble 6s ease-in 4s infinite;		
+}
+
+.witr_circle_bu.witr_small.witr_square5 {
+    left: 90%;
+    top: 100%;
+	animation: witr_smallBubble 5s ease-in 7s infinite;	
+}
+
+.witr_circle_bu.witr_medium {
+    width: 35px;
+    height: 35px;
+    opacity: 0.45;
+}
+
+.witr_circle_bu.witr_medium.witr_square1 {
+    left: 21%;
+	animation: witr_mediumBubble 8s ease-in 1s infinite;
+}
+
+.witr_circle_bu.witr_medium.witr_square2 {
+    left: 42%;
+    top: 100%;
+	animation: witr_mediumBubble 6s ease-in 8s infinite;	
+}
+
+.witr_circle_bu.witr_medium.witr_square3 {
+    left: 63%;
+    top: 100%;
+	animation: witr_mediumBubble 12s ease-in 8s infinite;	
+}
+
+.witr_circle_bu.witr_medium.witr_square4 {
+    left: 84%;
+    top: 100%;
+	animation: witr_mediumBubble 12s ease-in 4s infinite;	
+}
+
+.witr_circle_bu.witr_medium.witr_square5 {
+    left: 105%;
+    top: 100%;
+	animation: witr_mediumBubble 6s ease-in 18s infinite;	
+}
+
+.witr_circle_bu.witr_medium.witr_square5 {
+    left: 5%;
+    top: 100%;
+	animation: witr_mediumBubble 2s ease-in 8s infinite;	
+}
+
+.witr_circle_bu.witr_large {
+    width: 80px;
+    height: 80px;
+    opacity: 0.35;
+}
+
+.witr_circle_bu.witr_large.witr_square1 {
+    left: 21%;
+    top: 100%;
+	animation: witr_bigBubble 6s ease-in 6s infinite;	
+}
+
+.witr_circle_bu.witr_large.witr_square2 {
+    left: 42%;
+    top: 100%;
+	animation: witr_bigBubble 3s ease-in 6s infinite;	
+}
+
+.witr_circle_bu.witr_large.witr_square3 {
+    left: 63%;
+    top: 100%;
+	animation: witr_bigBubble 13s ease-in 6s infinite;	
+}
+
+.witr_circle_bu.witr_large.witr_square4 {
+    left: 84%;
+    top: 100%;
+	animation: witr_bigBubble 9s ease-in 6s infinite;		
+}
+
+.witr_circle_bu.witr_large.witr_square5 {
+    left: 105%;
+    top: 100%;
+	animation: witr_bigBubble 13s ease-in 6s infinite;	
+}
+
+@keyframes witr_smallBubble {
+    0% {
+        top: 100%;
+        margin-left: 10px;
+    }
+
+    25% {
+        margin-left: -10px;
+    }
+
+    50% {
+        margin-left: 10px;
+    }
+
+    75% {
+        margin-left: -10px;
+    }
+
+    100% {
+        top: 0%;
+        opacity: 0;
+        margin-left: 0px;
+    }
+}
+
+@keyframes witr_mediumBubble {
+    0% {
+        top: 100%;
+        margin-left: 15px;
+    }
+
+    25% {
+        margin-left: -15px;
+    }
+
+    50% {
+        margin-left: 15px;
+    }
+
+    75% {
+        margin-left: -15px;
+    }
+
+    100% {
+        top: 0%;
+        opacity: 0;
+        margin-left: 0px;
+    }
+}
+
+
+@keyframes witr_bigBubble {
+    0% {
+        top: 100%;
+        margin-left: 20px;
+    }
+
+    25% {
+        margin-left: -20px;
+    }
+
+    50% {
+        margin-left: 20px;
+    }
+
+    75% {
+        margin-left: -20px;
+    }
+
+    100% {
+        top: 0%;
+        opacity: 0;
+        margin-left: 0px;
+    }
+}

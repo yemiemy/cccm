@@ -12,7 +12,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 # Create your views here.
 
-YOUR_DOMAIN = "http://127.0.0.1:8000/"
+YOUR_DOMAIN = "https://communitycenterchildrenmission.ca/"
 
 def home(request):
     context = {
