@@ -10,9 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-import django_heroku
 import os
 from pathlib import Path
+import json
+
+with open('/etc/cccm_config.json') as config_file:
+    config = json.load(config_file)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(#zl0ugr_+jf^kxpige(z-k246*jl*7=s7c(0(yb-fw-(8$+7%'
+SECRET_KEY = config["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['communitycenterchildrenmission.ca', 'www.communitycenterchildrenmission.ca']
 
 
 # Application definition
@@ -46,6 +49,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
 ]
 
+
+STRIPE_SECRET_KEY = config["STRIPE_SECRET_KEY"]
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
@@ -124,12 +129,11 @@ USE_TZ = True
 
 
 # Email
-# SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'mail.privateemail.com'
-EMAIL_HOST_USER = 'info@communitycenterchildrenmission.ca'
-EMAIL_HOST_PASSWORD = 'Cmission@2022'
+EMAIL_HOST_USER = config.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config.get("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
@@ -143,6 +147,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
@@ -152,7 +157,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())

@@ -43,14 +43,15 @@
 					<p><em>NB :</em>To donate none monetary resources, kindly <span><a href="{% url 'contact' %}">contact us</a></span></p>
 				</div>
 				<div class="donation-amount">
-					<form action="">
+					<form action="{% url 'create-checkout-session' %}" method="POST">
+						{% csrf_token %}
 						<div class="form_field2">
-						<span>$</span>
-							<input  name="give-amount"  placeholder="" value="100.00">
+							<span>$</span>
+							<input  name="amount" min="0" type="number"  placeholder="" value="100.00">
 						</div>
-						
+						<input type="hidden" name="product_name" value="Donations">
 						<div class="form_field_btn">
-							<button type="button" class="give-btn give-btn-reveal">Donate Now</button>
+							<button type="submit" id="checkout-button" class="give-btn give-btn-reveal">Donate Now</button>
 						</div>
 					</form>
 				</div>

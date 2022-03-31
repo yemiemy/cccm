@@ -1,6 +1,11 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
+{% block head %}
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+{% endblock head %}
+	
 {% block content %}
 <div class="breadcumb-area">
 	<div class="container">				
@@ -42,14 +47,16 @@
 					<p><em>NB :</em>To donate none monetary resources, kindly <span><a href="{% url 'contact' %}">contact us</a></span></p>
 				</div>
 				<div class="donation-amount">
-					<form action="">
+					<form action="{% url 'create-checkout-session' %}" method="POST">
+						{% csrf_token %}
 						<div class="form_field2">
-						<span>$</span>
-							<input  name="give-amount"  placeholder="" value="100.00">
+							<span>$</span>
+							<input  name="amount" min="0" type="number"  placeholder="" value="100.00">
 						</div>
-						
+						<input type="hidden" name="product_name" value="{{event.name}}">
+						<input type="hidden" name="event_id" value="{{event.id}}">
 						<div class="form_field_btn">
-							<button type="button" class="give-btn give-btn-reveal">Donate Now</button>
+							<button type="submit" id="checkout-button" class="give-btn give-btn-reveal">Donate Now</button>
 						</div>
 					</form>
 				</div>
