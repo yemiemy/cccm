@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 import json
 
-with open('/etc/cccm_config.json') as config_file:
+with open('/etc/cccm_config.json', 'r', encoding="utf-8") as config_file:
     config = json.load(config_file)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['communitycenterchildrenmission.ca', 'www.communitycenterchildrenmission.ca']
+ALLOWED_HOSTS = ['74.208.110.36','communitycenterchildrenmission.ca', 'www.communitycenterchildrenmission.ca']
 
 
 # Application definition
@@ -94,7 +94,7 @@ DATABASES = {
         'NAME': 'cccm_db',
         'HOST': 'localhost',
         'USER': 'postgres',
-        'PASSWORD': config.get("DB_PASSWORD"),
+        'PASSWORD': 'postgres',
         'PORT': '5432'
     }
 }

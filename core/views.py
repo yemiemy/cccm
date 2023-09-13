@@ -100,7 +100,7 @@ def contact(request):
             
             msg_content_admin = render_to_string('emails/contact_form_admin.txt', context)
             msg_content_user = render_to_string('emails/contact_form_user.txt', context)
-            message_to_admin = (subject, msg_content_admin, 'info@communitycenterchildrenmission.ca', ['info@communitycenterchildrenmission.ca'])
+            message_to_admin = (subject, msg_content_admin, 'info@communitycenterchildrenmission.ca', ['ccfchildrenmission@gmail.com'])
             message_to_user = (subject, msg_content_user, 'info@communitycenterchildrenmission.ca', [email])  
 
             send_mass_mail((message_to_user, message_to_admin), fail_silently=False)
